@@ -1,0 +1,81 @@
+#*********************************************************************************
+# Copyright (c) 2024-2025, Qi Yaolong.
+# dragon@hbu.edu.cn
+# HeBei University, China.
+#
+# 保留所有权利。除非遵守以下条款，否则您不得使用此文件：
+# 本文件及其内容仅用于个人学习用途，在此范围之外的使用请先获得版权持有人的授权。
+#  
+# 本程序由版权持有人和贡献人“按原样”提供，不提供任何明示或暗示担保，包括但不局限于对适销性和特定
+# 用途适合性的暗示担保。在任何情况下，版权持有人或贡献人对因使用本程序而导致的任何直接、间接、附带、
+# 特殊、典型或后果性损害（包括但不限于购买替代商品或服务；使用损失、数据丢失或利润损失；业务中断）
+# 不承担任何责任，无论其如何产生，也不论其责任理论为何，无论是合同、严格责任还是侵权（包括疏忽或
+# 其他），即使已告知此类损害的可能性。
+#*********************************************************************************
+
+import("//build/lite/config/component/lite_component.gni")
+
+# Application "Hello World"
+#lite_component("app") {
+    # features字段指定业务模块，使目标模块参与编译。
+   # features = [
+        # 在features字段中增加索引，包括路径和目标。
+        # 路径"startup"："applications\sample\wifi-iot\app\startup"目录
+        # 目标"hello_world"："applications\sample\wifi-iot\app\startup\BUILD.gn"中的静态库名称
+        #"startup:hello_world",
+        # 如果"applications\sample\wifi-iot\app\startup\BUILD.gn"中的静态库名称与所在目录"startup"同名,
+        # 即目标与路径同名，可以简写为：
+        # "startup",
+   # ]
+#}
+
+# Application "gn_practice"
+# lite_component("app") {
+#   features = [
+#     "gn_practice/application:my_app",                         # 应用程序模块
+#     "gn_practice/driver:my_driver",                           # 驱动模块
+#     "gn_practice/library:my_library",                         # 库模块
+#   ]
+# }
+
+# Application "sle_demo_1v1"
+# lite_component("app") {
+#     features = [
+#         "sle_demo_1v1",                                       # 案例程序模块
+#     ]
+# }
+
+# Application "sle_demo_1vn"
+# lite_component("app") {
+#     features = [
+#         "sle_demo_1vn",                                       # 案例程序模块
+#     ]
+# }
+
+# Application "new_app"
+ lite_component("app") {
+     features = [
+        #"12_oled/demo:oled_demo",
+        #"12_oled/src:oled_ssd1306",
+
+        #"new_app/demo:oled_demo",
+        #"new_app/src:oled_ssd1306",
+
+        #"new_app_mix/demo:oled_demo",
+        #"new_app_mix/src:oled_ssd1306",
+
+        #"sle_demo_1v1", 
+
+        #"new_app/sle_demo_1v1",
+
+        #"uart_test:uart_demo",
+        #"sle_demo_1vn",  
+        
+        #"sle_demo_1vn_k230",      # UART+SLE客户端
+
+        #"sle_demo_1vn_voice",    # 语音SLE服务端
+             
+        "sle_demo_1vn_oled"        #sle+oled
+
+     ]
+ }
