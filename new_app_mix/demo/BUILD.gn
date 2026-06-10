@@ -1,0 +1,33 @@
+static_library("oled_demo") {
+  sources = [ 
+    "oled_demo.c",
+    "../sle_demo_1v1/sle_client.c",  # 先注释掉客户端，只编译服务端
+   
+  ]
+
+  include_dirs = [
+    "//commonlibrary/utils_lite/include",
+    "//kernel/liteos_m/kal",
+    "//base/iothardware/peripheral/interfaces/inner_api",
+    "//device/soc/hisilicon/ws63v100/sdk/include/driver",
+    "//device/soc/hisilicon/ws63v100/sdk/drivers/chips/ws63/rom/drivers/chips/ws63/porting/pinctrl",
+    "../src",
+    "../sle_demo_1v1",
+    
+    # 添加SLE相关的头文件路径
+    "//base/startup/init/interfaces/innerkits/include",
+    "//device/soc/hisilicon/ws63v100/sdk/include/middleware/services/bts/sle",
+    "//foundation/communication/sle",
+    "//device/soc/hisilicon/ws63v100/sdk/kernel/osal/include/debug",
+    "//device/soc/hisilicon/ws63v100/sdk/kernel/osal/include/memory",
+    "//device/soc/hisilicon/ws63v100/sdk/kernel/osal/include/schedule",
+    "//device/soc/hisilicon/ws63v100/adapter/hals/communication/sle_lite/include",
+  ]
+  
+  
+  # 添加必要的依赖库（避免循环依赖）  
+  deps = [
+    "../src:oled_ssd1306",
+    "//device/soc/hisilicon/ws63v100/adapter/hals/communication/sle_lite:sle_lite",
+  ]
+}
